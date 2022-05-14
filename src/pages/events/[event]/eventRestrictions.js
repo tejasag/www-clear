@@ -1,14 +1,14 @@
-import React from "react";
-import Breadcrumbs from "../../../components/Breadcrumbs";
-import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
-import { EventRestrictionPreview } from "../../../components/EventRestriction";
-import Page from "../../../components/Page";
-import { Heading, Grid } from "@codeday/topo/Atom";
-import { getSession } from "next-auth/react";
-import { getFetcher } from "../../../fetch";
-import { GetEventRestrictionsQuery } from "./eventRestrictions.gql";
-import LinkEventRestrictionsModal from "../../../components/LinkEventRestrictionsModal";
-import InfoBox from "../../../components/InfoBox";
+import React from 'react';
+import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
+import { Heading, Grid } from '@codeday/topo/Atom';
+import { getSession } from 'next-auth/react';
+import Breadcrumbs from '../../../components/Breadcrumbs';
+import { EventRestrictionPreview } from '../../../components/EventRestriction';
+import Page from '../../../components/Page';
+import { getFetcher } from '../../../fetch';
+import { GetEventRestrictionsQuery } from './eventRestrictions.gql';
+import LinkEventRestrictionsModal from '../../../components/LinkEventRestrictionsModal';
+import InfoBox from '../../../components/InfoBox';
 
 export default function EventRestrictions({ event, restrictions }) {
   if (!event) return <Page />;
@@ -20,9 +20,9 @@ export default function EventRestrictions({ event, restrictions }) {
 
       <Grid
         templateColumns={{
-          base: "1fr",
-          md: "repeat(2, 1fr)",
-          lg: "repeat(3, 1fr)",
+          base: '1fr',
+          md: 'repeat(2, 1fr)',
+          lg: 'repeat(3, 1fr)',
         }}
         gap={3}
       >

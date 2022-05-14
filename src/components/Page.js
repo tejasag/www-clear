@@ -11,10 +11,12 @@ import { Content } from "@codeday/topo/Molecule";
 import { Header, Menu, SiteLogo } from "@codeday/topo/Organism";
 import { DefaultSeo } from "next-seo";
 import { signIn, signOut, useSession } from "next-auth/react";
+import { useColorMode } from "@codeday/topo/Theme";
 
 export default function Page({ children, title, slug, ...props }) {
   const { data: session, status } = useSession();
   const loading = status === "loading";
+  const { colorMode, toggleColorMode } = useColorMode();
   if (!session) {
     return (
       <Box position="relative">
@@ -52,6 +54,10 @@ export default function Page({ children, title, slug, ...props }) {
         }}
       >
         Sign Out
+      </Button>
+
+      <Button onClick={toggleColorMode}>
+        Toggle {colorMode === "light" ? "Dark" : "Light"}
       </Button>
     </Menu>
   );

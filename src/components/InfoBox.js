@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Flex } from "@codeday/topo/Atom";
+import { Box, Flex, Text } from "@codeday/topo/Atom";
 import { useColorModeValue } from "@codeday/topo/Theme";
 
 export default function InfoBox({
@@ -16,7 +16,7 @@ export default function InfoBox({
       m={nested ? 0 : 1}
       rounded={5}
       backgroundColor={useColorModeValue(
-        nested ? "gray.1200" : undefined,
+        nested ? "gray.200" : "gray.100",
         nested ? "gray.1000" : "gray.1200"
       )}
       {...props}
@@ -24,7 +24,7 @@ export default function InfoBox({
       {heading && (
         <Flex
           backgroundColor={useColorModeValue(
-            nested ? "gray.100" : "gray.200",
+            nested ? "red.700" : "red.600",
             nested ? "red.800" : "red.700"
           )}
           fontSize={headingSize}
@@ -36,7 +36,9 @@ export default function InfoBox({
           p={1}
           align="center"
         >
-          <Box pl={2}>{heading}</Box>
+          <Text pl={2} color="white">
+            {heading}
+          </Text>
           <Box>{buttons}</Box>
         </Flex>
       )}

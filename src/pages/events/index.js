@@ -1,17 +1,17 @@
-import React from "react";
-import { DateTime } from "luxon";
-import { Heading, Grid } from "@codeday/topo/Atom";
-import { getSession } from "next-auth/react";
-import Page from "../../components/Page";
-import { getFetcher } from "../../fetch";
-import Event from "../../components/Event";
-import { getEvents } from "./index.gql";
+import React from 'react';
+import { DateTime } from 'luxon';
+import { Heading, Grid } from '@codeday/topo/Atom';
+import { getSession } from 'next-auth/react';
+import Page from '../../components/Page';
+import { getFetcher } from '../../fetch';
+import Event from '../../components/Event';
+import { getEvents } from './index.gql';
 
 export default function Events({ events }) {
   if (!events) return <Page />;
   const now = DateTime.now().minus({ days: 1 });
   const upcomingEvents = events.filter(
-    (e) => DateTime.fromISO(e.endDate) >= now
+    (e) => DateTime.fromISO(e.endDate) >= now,
   );
   const pastEvents = events.filter((e) => DateTime.fromISO(e.endDate) < now);
   return (
@@ -22,9 +22,9 @@ export default function Events({ events }) {
 
           <Grid
             templateColumns={{
-              base: "1fr",
-              md: "repeat(2, 1fr)",
-              lg: "repeat(3, 1fr)",
+              base: '1fr',
+              md: 'repeat(2, 1fr)',
+              lg: 'repeat(3, 1fr)',
             }}
           >
             {upcomingEvents.map((event) => (
@@ -39,9 +39,9 @@ export default function Events({ events }) {
 
           <Grid
             templateColumns={{
-              base: "1fr",
-              md: "repeat(2, 1fr)",
-              lg: "repeat(3, 1fr)",
+              base: '1fr',
+              md: 'repeat(2, 1fr)',
+              lg: 'repeat(3, 1fr)',
             }}
           >
             {pastEvents.map((event) => (
