@@ -1,4 +1,6 @@
-mutation CreateEventRestrictionMutation($data: ClearEventRestrictionCreateInput!) {
+mutation CreateEventRestrictionMutation(
+    $data: ClearEventRestrictionCreateInput!
+) {
     clear {
         createEventRestriction(data: $data) {
             id
@@ -6,7 +8,10 @@ mutation CreateEventRestrictionMutation($data: ClearEventRestrictionCreateInput!
     }
 }
 
-mutation UpdateEventRestrictionMutation($where: ClearEventRestrictionWhereUniqueInput!, $data: ClearEventRestrictionUpdateInput!) {
+mutation UpdateEventRestrictionMutation(
+    $where: ClearEventRestrictionWhereUniqueInput!
+    $data: ClearEventRestrictionUpdateInput!
+) {
     clear {
         updateEventRestriction(where: $where, data: $data) {
             id
@@ -14,7 +19,9 @@ mutation UpdateEventRestrictionMutation($where: ClearEventRestrictionWhereUnique
     }
 }
 
-mutation DeleteEventRestrictionMutation($where: ClearEventRestrictionWhereUniqueInput!) {
+mutation DeleteEventRestrictionMutation(
+    $where: ClearEventRestrictionWhereUniqueInput!
+) {
     clear {
         deleteEventRestriction(where: $where) {
             id
@@ -29,7 +36,10 @@ fragment EventRestrictionFormFragment on ClearEventRestriction {
     details
 }
 
-mutation UploadEventRestrictionIconMutation($where: ClearEventRestrictionWhereUniqueInput! $file: Upload!) {
+mutation UploadEventRestrictionIconMutation(
+    $where: ClearEventRestrictionWhereUniqueInput!
+    $file: Upload!
+) {
     clear {
         uploadEventRestrictionIcon(where: $where, upload: $file) {
             iconUri

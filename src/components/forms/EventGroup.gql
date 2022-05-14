@@ -17,7 +17,10 @@ mutation CreateEventGroupMutation($data: ClearEventGroupCreateInput!) {
     }
 }
 
-mutation UpdateEventGroupMutation($where: ClearEventGroupWhereUniqueInput!, $data: ClearEventGroupUpdateInput!) {
+mutation UpdateEventGroupMutation(
+    $where: ClearEventGroupWhereUniqueInput!
+    $data: ClearEventGroupUpdateInput!
+) {
     clear {
         updateEventGroup(where: $where, data: $data) {
             id

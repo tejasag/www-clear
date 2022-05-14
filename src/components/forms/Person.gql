@@ -15,7 +15,10 @@ mutation CreatePersonMutation($data: ClearPersonCreateInput!) {
     }
 }
 
-mutation UpdatePersonMutation($where: ClearPersonWhereUniqueInput!, $data: ClearPersonUpdateInput!) {
+mutation UpdatePersonMutation(
+    $where: ClearPersonWhereUniqueInput!
+    $data: ClearPersonUpdateInput!
+) {
     clear {
         updatePerson(where: $where, data: $data) {
             id

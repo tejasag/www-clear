@@ -1,29 +1,41 @@
 import React from 'react';
-import {getEventGroup} from './index.gql'
-import {Box, Grid, Heading} from "@codeday/topo/Atom";
-import {getFetcher} from "../../../fetch";
-import {useRouter} from "next/router";
-import Page from "../../../components/Page";
-import Event from "../../../components/Event";
-import Breadcrumbs from "../../../components/Breadcrumbs";
-import {getSession} from "next-auth/react";
-import {CreateEventModal} from "../../../components/forms/Event";
-import {DeleteEventGroupModal, UpdateEventGroupModal} from "../../../components/forms/EventGroup";
+import { getEventGroup } from './index.gql';
+import { Box, Grid, Heading } from '@codeday/topo/Atom';
+import { getFetcher } from '../../../fetch';
+import { useRouter } from 'next/router';
+import Page from '../../../components/Page';
+import Event from '../../../components/Event';
+import Breadcrumbs from '../../../components/Breadcrumbs';
+import { getSession } from 'next-auth/react';
+import { CreateEventModal } from '../../../components/forms/Event';
+import {
+    DeleteEventGroupModal,
+    UpdateEventGroupModal,
+} from '../../../components/forms/EventGroup';
 
-export default function Group({group}) {
-    if (!group) return <Page/>
-    const {query} = useRouter();
+export default function Group({ group }) {
+    if (!group) return <Page />;
+    const { query } = useRouter();
     return (
         <Page title={group.name}>
-            <Breadcrumbs group={group}/>
-            <Heading>{group.name} <UpdateEventGroupModal eventgroup={group}/> <DeleteEventGroupModal eventgroup={group} /></Heading>
+            <Breadcrumbs group={group} />
+            <Heading>
+                {group.name} <UpdateEventGroupModal eventgroup={group} />{' '}
+                <DeleteEventGroupModal eventgroup={group} />
+            </Heading>
             <Box display="inline-flex">
-                <Heading m={4} size="md" display="inline-flex"><b>Events</b></Heading>
-                <CreateEventModal group={group}/>
+                <Heading m={4} size="md" display="inline-flex">
+                    <b>Events</b>
+                </Heading>
+                <CreateEventModal group={group} />
             </Box>
-            <Grid templateColumns={{base: '1fr', md: "repeat(4, 1fr)"}} gap={4} m={4}>
+            <Grid
+                templateColumns={{ base: '1fr', md: 'repeat(4, 1fr)' }}
+                gap={4}
+                m={4}
+            >
                 {group.events?.map((event) => {
-                    return <Event event={event} key={event.id}/>
+                    return <Event event={event} key={event.id} />;
                 })}
             </Grid>
             {/*<Heading m={4} size="md" display="inline-flex"><b>Schedule</b></Heading>*/}
@@ -34,17 +46,21 @@ export default function Group({group}) {
             {/*        href={`${query.group}/schedule/createScheduleItem`}>Create Schedule Item</Button>*/}
             {/*<Calendar schedule={group.schedule} />*/}
         </Page>
-    )
+    );
 }
 
-export async function getServerSideProps({req, res, params: {group: groupId}}) {
-    const session = await getSession({req})
+export async function getServerSideProps({
+    req,
+    res,
+    params: { group: groupId },
+}) {
+    const session = await getSession({ req });
     const fetch = getFetcher(session);
-    if (!session) return {props: {}}
-    const groupResp = await fetch(getEventGroup, {'data': {'id': groupId}})
+    if (!session) return { props: {} };
+    const groupResp = await fetch(getEventGroup, { data: { id: groupId } });
     return {
         props: {
-            group: groupResp.clear.eventGroup
-        }
-    }
+            group: groupResp.clear.eventGroup,
+        },
+    };
 }

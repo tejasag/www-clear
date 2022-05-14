@@ -17,9 +17,15 @@ fragment RegistrationsToggleWithChecklistFragment on ClearEvent {
     registrationsOpen
 }
 
-mutation RegistrationsToggleMutation($eventWhere: ClearEventWhereUniqueInput!, $data: Boolean!) {
+mutation RegistrationsToggleMutation(
+    $eventWhere: ClearEventWhereUniqueInput!
+    $data: Boolean!
+) {
     clear {
-        updateEvent(where: $eventWhere, data: {registrationsOpen: {set: $data}}) {
+        updateEvent(
+            where: $eventWhere
+            data: { registrationsOpen: { set: $data } }
+        ) {
             id
         }
     }

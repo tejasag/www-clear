@@ -6,7 +6,10 @@ mutation CreateEmailTemplateMutation($data: ClearEmailTemplateCreateInput!) {
     }
 }
 
-mutation UpdateEmailTemplateMutation($where: ClearEmailTemplateWhereUniqueInput!, $data: ClearEmailTemplateUpdateInput!) {
+mutation UpdateEmailTemplateMutation(
+    $where: ClearEmailTemplateWhereUniqueInput!
+    $data: ClearEmailTemplateUpdateInput!
+) {
     clear {
         updateEmailTemplate(where: $where, data: $data) {
             id
@@ -14,7 +17,9 @@ mutation UpdateEmailTemplateMutation($where: ClearEmailTemplateWhereUniqueInput!
     }
 }
 
-mutation DeleteEmailTemplateMutation($where: ClearEmailTemplateWhereUniqueInput!) {
+mutation DeleteEmailTemplateMutation(
+    $where: ClearEmailTemplateWhereUniqueInput!
+) {
     clear {
         deleteEmailTemplate(where: $where) {
             id

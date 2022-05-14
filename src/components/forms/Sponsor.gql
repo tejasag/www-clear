@@ -17,7 +17,10 @@ mutation CreateSponsorMutation($data: ClearSponsorCreateInput!) {
     }
 }
 
-mutation UpdateSponsorMutation($where: ClearSponsorWhereUniqueInput!, $data: ClearSponsorUpdateInput!) {
+mutation UpdateSponsorMutation(
+    $where: ClearSponsorWhereUniqueInput!
+    $data: ClearSponsorUpdateInput!
+) {
     clear {
         updateSponsor(where: $where, data: $data) {
             id
@@ -33,7 +36,10 @@ mutation DeleteSponsorMutation($where: ClearSponsorWhereUniqueInput!) {
     }
 }
 
-mutation UploadSponsorLogoMutation($where: ClearSponsorWhereUniqueInput! $file: Upload!) {
+mutation UploadSponsorLogoMutation(
+    $where: ClearSponsorWhereUniqueInput!
+    $file: Upload!
+) {
     clear {
         uploadSponsorLogo(where: $where, upload: $file) {
             logoImageUri
@@ -41,7 +47,10 @@ mutation UploadSponsorLogoMutation($where: ClearSponsorWhereUniqueInput! $file: 
     }
 }
 
-mutation UploadSponsorDarkLogoMutation($where: ClearSponsorWhereUniqueInput! $file: Upload!) {
+mutation UploadSponsorDarkLogoMutation(
+    $where: ClearSponsorWhereUniqueInput!
+    $file: Upload!
+) {
     clear {
         uploadDarkSponsorLogo(where: $where, upload: $file) {
             darkLogoImageUri

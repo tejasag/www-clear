@@ -17,7 +17,6 @@ fragment ScheduleItemFormFragment on ClearScheduleItem {
     internal
 }
 
-
 mutation CreateScheduleItemMutation($data: ClearScheduleItemCreateInput!) {
     clear {
         createScheduleItem(data: $data) {
@@ -26,7 +25,10 @@ mutation CreateScheduleItemMutation($data: ClearScheduleItemCreateInput!) {
     }
 }
 
-mutation UpdateScheduleItemMutation($where: ClearScheduleItemWhereUniqueInput!, $data: ClearScheduleItemUpdateInput!) {
+mutation UpdateScheduleItemMutation(
+    $where: ClearScheduleItemWhereUniqueInput!
+    $data: ClearScheduleItemUpdateInput!
+) {
     clear {
         updateScheduleItem(where: $where, data: $data) {
             id
@@ -34,7 +36,9 @@ mutation UpdateScheduleItemMutation($where: ClearScheduleItemWhereUniqueInput!, 
     }
 }
 
-mutation DeleteScheduleItemMutation($where: ClearScheduleItemWhereUniqueInput!) {
+mutation DeleteScheduleItemMutation(
+    $where: ClearScheduleItemWhereUniqueInput!
+) {
     clear {
         deleteScheduleItem(where: $where) {
             id

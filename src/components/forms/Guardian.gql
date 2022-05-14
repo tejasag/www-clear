@@ -6,15 +6,24 @@ fragment GuardianFormFragment on ClearPerson {
     phone
 }
 
-mutation AddGuardianMutation($ticketId: String! $data: ClearPersonCreateWithoutTicketInput!) {
+mutation AddGuardianMutation(
+    $ticketId: String!
+    $data: ClearPersonCreateWithoutTicketInput!
+) {
     clear {
-        updateTicket(where: {id: $ticketId} data: {guardian: {create: $data }}) {
+        updateTicket(
+            where: { id: $ticketId }
+            data: { guardian: { create: $data } }
+        ) {
             id
         }
     }
 }
 
-mutation UpdateGuardianMutation($where: ClearPersonWhereUniqueInput!, $data: ClearPersonUpdateInput!) {
+mutation UpdateGuardianMutation(
+    $where: ClearPersonWhereUniqueInput!
+    $data: ClearPersonUpdateInput!
+) {
     clear {
         updatePerson(where: $where, data: $data) {
             id

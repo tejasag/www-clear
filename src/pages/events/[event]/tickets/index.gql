@@ -23,7 +23,7 @@ query getEventWithTickets($data: ClearEventWhereUniqueInput!) {
     }
 }
 
-mutation createTicket($data: ClearTicketCreateInput!, ) {
+mutation createTicket($data: ClearTicketCreateInput!) {
     clear {
         createTicket(data: $data) {
             id

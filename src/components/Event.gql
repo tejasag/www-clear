@@ -1,15 +1,15 @@
 fragment EventFragment on ClearEvent {
     id
     name
-    students:  soldTickets(onlyStudents: true)
+    students: soldTickets(onlyStudents: true)
     soldTickets
     eventGroup {
         name
     }
     displayDate
     region {
-      skylinePhoto {
-        url(transform: { width: 100, height: 100, resizeStrategy: FILL })
-      }
+        skylinePhoto {
+            url(transform: { width: 100, height: 100, resizeStrategy: FILL })
+        }
     }
 }

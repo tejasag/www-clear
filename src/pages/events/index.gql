@@ -2,7 +2,7 @@
 
 query getEvents {
     clear {
-        events (editable: true) {
+        events(editable: true) {
             endDate
             ...EventFragment
         }

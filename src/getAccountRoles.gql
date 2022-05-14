@@ -1,6 +1,6 @@
-query GetAccountRolesQuery ($username: String!) {
+query GetAccountRolesQuery($username: String!) {
     account {
-        getUser(where: {username: $username}) {
+        getUser(where: { username: $username }) {
             roles {
                 id
             }

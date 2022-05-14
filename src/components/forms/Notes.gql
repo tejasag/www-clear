@@ -26,9 +26,13 @@ fragment EmailTemplateNotesFragment on ClearEmailTemplate {
     notes: getMetadata(key: "notes")
 }
 
-mutation SetPromoCodeNotesMutation($id: String! $notes: String!) {
+mutation SetPromoCodeNotesMutation($id: String!, $notes: String!) {
     clear {
-        setNotes: setPromoCodeMetadata(where: {id: $id}, key: "notes", value: $notes) {
+        setNotes: setPromoCodeMetadata(
+            where: { id: $id }
+            key: "notes"
+            value: $notes
+        ) {
             ...PromoCodeNotesFragment
         }
     }
@@ -36,47 +40,71 @@ mutation SetPromoCodeNotesMutation($id: String! $notes: String!) {
 
 mutation SetVenueNotesMutation($id: String!, $notes: String!) {
     clear {
-        setNotes: setVenueMetadata(where: {id: $id}, key: "notes", value: $notes) {
+        setNotes: setVenueMetadata(
+            where: { id: $id }
+            key: "notes"
+            value: $notes
+        ) {
             ...VenueNotesFragment
         }
     }
 }
 
-mutation SetEventNotesMutation($id: String! $notes: String!) {
+mutation SetEventNotesMutation($id: String!, $notes: String!) {
     clear {
-        setNotes: setEventMetadata(where: {id: $id}, key: "notes", value: $notes) {
+        setNotes: setEventMetadata(
+            where: { id: $id }
+            key: "notes"
+            value: $notes
+        ) {
             ...EventNotesFragment
         }
     }
 }
 
-mutation SetSponsorNotesMutation($id: String! $notes: String!) {
+mutation SetSponsorNotesMutation($id: String!, $notes: String!) {
     clear {
-        setNotes: setSponsorMetadata(where: {id: $id}, key: "notes", value: $notes) {
+        setNotes: setSponsorMetadata(
+            where: { id: $id }
+            key: "notes"
+            value: $notes
+        ) {
             ...SponsorNotesFragment
         }
     }
 }
 
-mutation SetScheduleItemNotesMutation($id: String! $notes: String!) {
+mutation SetScheduleItemNotesMutation($id: String!, $notes: String!) {
     clear {
-        setNotes: setScheduleItemMetadata(where: {id: $id}, key: "notes", value: $notes) {
+        setNotes: setScheduleItemMetadata(
+            where: { id: $id }
+            key: "notes"
+            value: $notes
+        ) {
             ...ScheduleItemNotesFragment
         }
     }
 }
 
-mutation SetEventRestrictionNotesMutation($id: String! $notes: String!) {
+mutation SetEventRestrictionNotesMutation($id: String!, $notes: String!) {
     clear {
-        setNotes: setEventRestrictionMetadata(where: {id: $id}, key: "notes", value: $notes) {
+        setNotes: setEventRestrictionMetadata(
+            where: { id: $id }
+            key: "notes"
+            value: $notes
+        ) {
             ...EventRestrictionNotesFragment
         }
     }
 }
 
-mutation SetEmailTemplateNotesMutation($id: String! $notes: String!) {
+mutation SetEmailTemplateNotesMutation($id: String!, $notes: String!) {
     clear {
-        setNotes: setEmailTemplateMetadata(where: {id: $id}, key: "notes", value: $notes) {
+        setNotes: setEmailTemplateMetadata(
+            where: { id: $id }
+            key: "notes"
+            value: $notes
+        ) {
             ...EmailTemplateNotesFragment
         }
     }

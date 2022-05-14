@@ -4,27 +4,31 @@ import moment from 'moment-timezone';
 import { getSession, SessionProvider } from 'next-auth/react';
 import { QueryProvider } from '../providers/query';
 
-export default function CustomApp({ Component, pageProps: { query, ...pageProps }, session }) {
-  moment.tz.setDefault('Etc/UTC');
+export default function CustomApp({
+    Component,
+    pageProps: { query, ...pageProps },
+    session,
+}) {
+    moment.tz.setDefault('Etc/UTC');
 
-  return (
-    <SessionProvider session={session} refetchInterval={15 * 60}>
-      <ThemeProvider brandColor="red">
-        <QueryProvider value={query || {}}>
-          <Component {...pageProps} />
-        </QueryProvider>
-      </ThemeProvider>
-    </SessionProvider>
-  );
+    return (
+        <SessionProvider session={session} refetchInterval={15 * 60}>
+            <ThemeProvider brandColor="red">
+                <QueryProvider value={query || {}}>
+                    <Component {...pageProps} />
+                </QueryProvider>
+            </ThemeProvider>
+        </SessionProvider>
+    );
 }
 CustomApp.propTypes = {
-  Component: PropTypes.elementType.isRequired,
-  pageProps: PropTypes.object,
+    Component: PropTypes.elementType.isRequired,
+    pageProps: PropTypes.object,
 };
 CustomApp.defaultProps = {
-  pageProps: {},
+    pageProps: {},
 };
 CustomApp.getInitialProps = async ({ ctx }) => {
-  const session = await getSession(ctx);
-  return { session };
+    const session = await getSession(ctx);
+    return { session };
 };
